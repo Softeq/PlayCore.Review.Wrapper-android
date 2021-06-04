@@ -1,0 +1,3 @@
+include ':PlayCoreWrapper'
+include ':app'
+rootProject.name = "Play.Core.Wrapper"
