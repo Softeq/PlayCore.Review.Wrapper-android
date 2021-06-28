@@ -8,6 +8,8 @@ using AndroidX.AppCompat.App;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
 using Com.Softeq.Playcorewrapper;
+using Xamarin.Google.Android.Play.Core.Review;
+using Xamarin.Google.Android.Play.Core.Tasks;
 
 namespace Sample
 {
@@ -50,7 +52,12 @@ namespace Sample
 
         private void FabOnClick(object sender, EventArgs eventArgs)
         {
-            _requestReviewService.RequestReview(this, new ReviewListener());                  
+            //_requestReviewService.RequestReview(this, new ReviewListener());
+
+            var rs = ReviewManagerFactory.Create(this);
+            var task = rs.RequestReviewFlow();
+            task.AddOnCompleteListener(new CustomOnCompleteListener());
+            task.AddOnFailureListener(new CustomOnFailureListener());
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
@@ -60,17 +67,33 @@ namespace Sample
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
-        private class ReviewListener : Java.Lang.Object, IReviewListener
+        private class CustomOnCompleteListener : Java.Lang.Object, IOnCompleteListener
         {
-            public void OnError()
-            {
-                Console.WriteLine("Native App review has failed");
-            }
-
-            public void OnSuccess()
+            public void OnComplete(Task p0)
             {
                 Console.WriteLine("User has completed native App review");
             }
         }
+
+        private class CustomOnFailureListener : Java.Lang.Object, IOnFailureListener
+        {
+            public void OnFailure(Java.Lang.Exception p0)
+            {
+                Console.WriteLine("Native App review has failed");
+            }
+        }
+
+        //private class ReviewListener : Java.Lang.Object, IReviewListener
+        //{
+        //    public void OnError()
+        //    {
+        //        Console.WriteLine("Native App review has failed");
+        //    }
+
+        //    public void OnSuccess()
+        //    {
+        //        Console.WriteLine("User has completed native App review");
+        //    }
+        //}
     }
 }
