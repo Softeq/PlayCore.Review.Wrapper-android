@@ -31,20 +31,20 @@ sources/Makefile.in
 *.pidb
 *.userprefs
 *.usertasks
-sources/config.log
-sources/config.make
-sources/config.status
-sources/aclocal.m4
-sources/install-sh
-sources/autom4te.cache/
+config.log
+config.make
+config.status
+aclocal.m4
+install-sh
+autom4te.cache/
 *.user
 *.tar.gz
-sources/tarballs/
-sources/test-results/
-sources/Thumbs.db
-sources/.sonarqube/
-sources/.scannerwork/
-sources/.vs/
+tarballs/
+test-results/
+Thumbs.db
+.sonarqube/
+.scannerwork/
+.vs/
 *.idea/
 
 # Mac bundle stuff
