@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Softeq.PlayCore</id>
+        <version>1.10.0</version>
+        <authors>Softeq Development Corp.</authors>
+        <owners>Softeq Development Corp.</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <title>PlayCore</title>
+        <summary>Xamarin.Android binding library for Play Core</summary>
+        <description>Play Core</description>
+        <releaseNotes>New release</releaseNotes>
+        <projectUrl>https://github.com/Softeq/PlayCore.Review.Wrapper-android</projectUrl>
+        <licenseUrl>https://github.com/Softeq/PlayCore.Review.Wrapper-android/blob/main/LICENSE</licenseUrl>
+        <copyright>Copyright 2021 Softeq Development Corp.</copyright>
+        <tags>play, core, play.core, xamarin.android, softeq, android</tags>
+    </metadata>
+    <files>
+        <file src="../Xamarin/Play.Core.Wrapper/bin/Release/Play.Core.Wrapper.dll" target="lib/MonoAndroid41/Play.Core.Wrapper.dll" />
+        <file src="../Xamarin/Play.Core.Bindings/bin/Release/Play.Core.Bindings.dll" target="lib/MonoAndroid41/Play.Core.Bindings.dll" />
+    </files>
+</package>
